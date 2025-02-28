@@ -1,0 +1,14 @@
+#+title: Readme
+#+author: Christiaan van Dam
+
+* NeoVim config
+
+** Plugins used:
+   - Lazy
+   - LazyDev
+   - cmp
+   - nvim-treesitter
+   - nvim-orgmode
+   - NERDTree
+   - Monokai Pro theme
+
