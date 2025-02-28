@@ -3,7 +3,7 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   build = ":TSUpdate",
   dependencies = {
-    "windowwp/nvim-ts-autotag",
+    "windwp/nvim-ts-autotag",
   },
   config = function ()
     local treesitter = require("nvim-treesitter.configs")
@@ -16,14 +16,11 @@ return {
       indent = { enable = true },
       autotag = { enable = true },
       ensure_installed = {
-        "bash"
+        "bash",
         "c",
-        "c3",
         "cmake",
-        "cobol",
         "comment",
         "cpp",
-        "csharp",
         "css",
         "csv",
         "dockerfile",
