@@ -74,6 +74,12 @@ return {
           capabilities = capabilities,
         })
       end,
+      ["twiggy_language_server"] = function()
+        nvim_lsp["twiggy_language_server"].setup({
+          on_attach = on_attach,
+          capabilities = capabilities,
+        })
+      end,
     })
   end,
 }
