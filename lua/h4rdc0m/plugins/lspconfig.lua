@@ -37,6 +37,16 @@ return {
         nvim_lsp["intelephense"].setup({
           on_attach = on_attach,
           capabilities = capabilities,
+          root_dir = function()
+            return vim.loop.cwd()
+          end,
+          settings = {
+            intelephense = {
+              files = {
+                maxSize = 4000000,
+              }
+            }
+          }
         })
       end,
       ["ts_ls"] = function()
@@ -79,6 +89,9 @@ return {
         nvim_lsp["twiggy_language_server"].setup({
           on_attach = on_attach,
           capabilities = capabilities,
+          root_dir = function()
+            return vim.loop.cwd()
+          end, 
           init_options = {
             dynamicRegistration = false,  -- Force geen dynamische registratie
           },
@@ -98,7 +111,9 @@ return {
         })
       end,
       ["emmet_language_server"] = function()
-        filetypes = { "css", "eruby", "html", "twig", "html.twig", "javascriptreact", "less", "sass", "scss", "pug", "typescriptreact" },
+        nvim_lsp["emmet_language_server"].setup({
+          filetypes = { "css", "eruby", "html", "twig", "html.twig", "javascriptreact", "less", "sass", "scss", "pug", "typescriptreact" },
+        })
       end,
     })
   end,
