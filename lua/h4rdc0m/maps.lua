@@ -47,5 +47,5 @@ end)
 
 -- Copilot mapping
 vim.keymap.set("i", "<C-l>", function()
-  vim.fn.feedkeys(vin.fn["copilot#Accept"](), "")
+  vim.fn.feedkeys(vim.fn["copilot#Accept"](), "")
 end, { desc = 'Copilor Accept', noremap = true, silent = true })
