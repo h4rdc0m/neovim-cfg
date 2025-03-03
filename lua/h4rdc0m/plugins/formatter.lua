@@ -15,6 +15,8 @@ return {
         json = { "prettier" },
         yaml = { "prettier" },
         markdown = { "prettier" },
+        twig = { "twig-cs-fixer", ignore_lsp=true },
+        ["html.twig"] = { "twig-cs-fixer", ignore_lsp=true },
         lua = { "stylua" },
         python = { "isort", "black" },
       },
@@ -25,12 +27,6 @@ return {
       },
     })
 
-    vim.keymap.set({ "n", "v" }, "<leader>f", function()
-      conform.format({
-        lsp_fallback = true,
-        async = false,
-        timeout_ms = 1000,
-      })
-    end, { desc = "Format the file or range (in visual mode)" })
+    
   end,
 }

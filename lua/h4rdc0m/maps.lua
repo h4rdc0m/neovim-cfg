@@ -36,3 +36,11 @@ map("n", "<C-Left>", "<C-w><")
 map("n", "<C-Right>", "<C-w>>")
 map("n", "<C-Up>", "<C-w>+")
 map("n", "<C-Down>", "<C-w>-")
+
+map({ "n", "v" }, "<leader>f", function()
+  require("conform").format({
+    lsp_fallback = true,
+    async = false,
+    timeout_ms = 1000,
+  })
+end)

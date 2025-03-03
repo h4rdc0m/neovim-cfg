@@ -5,6 +5,7 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     { "folke/lazydev.nvim", opts = {} },
   },
+  dynamicRegistration = true,
   config = function()
     local nvim_lsp = require("lspconfig")
     local mason_lspconfig = require("mason-lspconfig")
@@ -78,7 +79,26 @@ return {
         nvim_lsp["twiggy_language_server"].setup({
           on_attach = on_attach,
           capabilities = capabilities,
+          init_options = {
+            dynamicRegistration = false,  -- Force geen dynamische registratie
+          },
+          settings = {
+            twiggy = {
+              diagnostics = {
+                twigCsFixer = true,
+              },
+              framework = "symfony",
+              symfonyConsolePath = "bin/console",
+              phpExecutable = "C:\\Users\\hardc\\.config\\herd\\bin\\php83\\php.exe",
+            },
+          },
+          -- Beperk de analyse tot relevante bestandstypen en voorkom dat vendor-mappen worden gescand.
+          filetypes = { "php", "twig" },
+          
         })
+      end,
+      ["emmet_language_server"] = function()
+        filetypes = { "css", "eruby", "html", "twig", "html.twig", "javascriptreact", "less", "sass", "scss", "pug", "typescriptreact" },
       end,
     })
   end,
