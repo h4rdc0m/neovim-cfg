@@ -37,6 +37,9 @@ map("n", "<C-Right>", "<C-w>>")
 map("n", "<C-Up>", "<C-w>+")
 map("n", "<C-Down>", "<C-w>-")
 
+-- SASS compile: using system command needs sass to be installed
+map("n", "<leader>sc", "<CMD>!sass --source-map %:p %:r.css<CR>")
+
 map({ "n", "v" }, "<leader>f", function()
   require("conform").format({
     lsp_fallback = true,
