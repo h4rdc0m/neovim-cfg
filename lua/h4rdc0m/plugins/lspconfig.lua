@@ -89,9 +89,6 @@ return {
         nvim_lsp["twiggy_language_server"].setup({
           on_attach = on_attach,
           capabilities = capabilities,
-          root_dir = function()
-            return vim.loop.cwd()
-          end, 
           init_options = {
             dynamicRegistration = false,  -- Force geen dynamische registratie
           },
