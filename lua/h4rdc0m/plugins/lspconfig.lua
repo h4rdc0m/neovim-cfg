@@ -112,6 +112,20 @@ return {
           filetypes = { "css", "eruby", "html", "twig", "html.twig", "javascriptreact", "less", "sass", "scss", "pug", "typescriptreact" },
         })
       end,
+      ["phpactor"] = function()
+        nvim_lsp["phpactor"].setup({
+          on_attach = on_attach,
+          capabilities = capabilities,
+          init_options = {
+            include = {
+              "composer.json",
+              "phpactor.json",
+              "phpactor.yml",
+              "phpactor.yaml",
+            },
+          },
+        })
+      end,
     })
   end,
 }
