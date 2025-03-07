@@ -3,9 +3,12 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
-    { "folke/lazydev.nvim", opts = {} },
   },
   dynamicRegistration = true,
+  opts = function(_, opts)
+    opts.sources = opts.sources or {}
+    table.insert(opts.sources, { name = "lazydev", group_index = 0 })
+  end,
   config = function()
     local nvim_lsp = require("lspconfig")
     local mason_lspconfig = require("mason-lspconfig")
@@ -63,7 +66,7 @@ return {
       end,
       ["html"] = function()
         nvim_lsp["html"].setup({
-          on_attach = on_attach, 
+          on_attach = on_attach,
           capabilities = capabilities,
         })
       end,
@@ -90,7 +93,7 @@ return {
           on_attach = on_attach,
           capabilities = capabilities,
           init_options = {
-            dynamicRegistration = false,  -- Force geen dynamische registratie
+            dynamicRegistration = false, -- Force geen dynamische registratie
           },
           settings = {
             twiggy = {
@@ -104,7 +107,6 @@ return {
           },
           -- Beperk de analyse tot relevante bestandstypen en voorkom dat vendor-mappen worden gescand.
           filetypes = { "php", "twig" },
-          
         })
       end,
       ["emmet_language_server"] = function()

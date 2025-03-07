@@ -40,13 +40,7 @@ map("n", "<C-Down>", "<C-w>-")
 -- SASS compile: using system command needs sass to be installed
 map("n", "<leader>sc", "<CMD>!sass --source-map %:p %:r.css<CR>")
 
-map({ "n", "v" }, "<leader>f", function()
-  require("conform").format({
-    lsp_fallback = true,
-    async = false,
-    timeout_ms = 1000,
-  })
-end)
+
 
 -- Copilot mapping
 vim.keymap.set("i", "<C-l>", function()

@@ -1,0 +1,14 @@
+column_width = 120
+line_endings = "unix"
+indent_width = 2
+indent_type = "Spaces"
+quote_style = "AutoPreferSingle"
+call_parentheses = "Always"
+format_on_save = true
+ignore = ["*.min.lua", "*.min.vim"]
+root_dir = null
+recursive = true
+search_parent_directories = true
+
+[sort_requires]
+enabled = true
